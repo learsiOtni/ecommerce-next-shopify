@@ -11,7 +11,7 @@ interface Props {
 
 const Noop: FC<Props> = ({children}) => <>{children}</>
 
-function MyApp({Component, pageProps}: AppProps & { Component: { Layout: FC}}) {
+function MyApp({Component, pageProps}: AppProps & { Component: { Layout: FC<Props>}}) {
 
     const Layout = Component.Layout ?? Noop
 
