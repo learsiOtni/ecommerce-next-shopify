@@ -1,9 +1,13 @@
-import React, { FC, Children, isValidElement, useState } from 'react'
+import React, { FC, Children, isValidElement, useState, ReactNode } from 'react'
 import s from "./ProductSlider.module.css"
 import { useKeenSlider } from "keen-slider/react"
 import cn from "classnames"
 
-const ProductSlider: FC = ({children}) => {
+interface Props {
+    children: ReactNode
+}
+
+const ProductSlider: FC<Props> = ({children}) => {
 
     const [currentSlide, setCurrentSlide] = useState(0)
     const [loaded, setLoaded ] = useState(false)
