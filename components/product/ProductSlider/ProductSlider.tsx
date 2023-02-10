@@ -26,7 +26,7 @@ const ProductSlider: FC<Props> = ({children}) => {
     return (
         <div className={s.root}>
             <div 
-                ref={sliderRef as React.RefObject<HTMLDivElement>} 
+                ref={sliderRef as unknown as React.RefObject<HTMLDivElement>} 
                 className="keen-slider h-full transition-opacity duration-150"
             >
                 <button 
@@ -50,17 +50,19 @@ const ProductSlider: FC<Props> = ({children}) => {
 
                     if (isValidElement(child)) {
 
-                        /*return {
+                        return {
                             ...child,
                             props: {
                                 ...child.props,
-                                className: "keen-slider__slide"
+                                className: `${
+                                    child.props.className ? `${child.props.className}` : ""
+                                } keen-slider__slide`
                             }
-                        }*/
+                        }
 
-                        return React.cloneElement(child, { 
+                        /*return React.cloneElement(child, { 
                             className: `${child.props.className ? `${child.props.className}` : ""} keen-slider__slide`
-                        })
+                        })*/
                     }
 
                     return child;
