@@ -88,9 +88,7 @@ const CartItem = ({
                   label={value.label}
                   color={value.hexColor}
                   variant={option.displayName}
-                >
-
-                </Swatch>
+                />
               )
             }))
           }
