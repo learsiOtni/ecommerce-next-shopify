@@ -1,5 +1,5 @@
 
-import { FC } from "react"
+import { FC, ReactNode } from "react"
 import style from "./Layout.module.css"
 import { Footer, Navbar } from "@components/common"
 import { Sidebar } from "@components/ui"
@@ -7,8 +7,11 @@ import { CartSidebar } from "@components/cart"
 import { useUI } from "@components/ui/context"
 import { ApiProvider } from "@framework"
 
+interface Props {
+    children: ReactNode
+}
 
-const Layout: FC = ( {children} ) => {
+const Layout: FC<Props> = ({children}) => {
 
     const { isSidebarOpen, closeSidebar } = useUI()
 
